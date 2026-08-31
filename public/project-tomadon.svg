@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14532D" />
+      <stop offset="55%" stop-color="#16A34A" />
+      <stop offset="100%" stop-color="#EAB308" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="56" fill="url(#bg)"/>
+  <rect x="104" y="96" width="992" height="608" rx="36" fill="#FFFFFF" fill-opacity="0.88"/>
+  <text x="150" y="210" fill="#14532D" font-family="Inter, Arial, sans-serif" font-size="62" font-weight="800">TomadOn</text>
+  <text x="150" y="270" fill="#334155" font-family="JetBrains Mono, Consolas, monospace" font-size="26">project kuliah • penjualan bahan sembako</text>
+  <rect x="150" y="330" width="900" height="18" rx="9" fill="#14532D" fill-opacity="0.14"/>
+  <rect x="150" y="366" width="780" height="18" rx="9" fill="#14532D" fill-opacity="0.14"/>
+  <rect x="150" y="402" width="840" height="18" rx="9" fill="#14532D" fill-opacity="0.14"/>
+  <g transform="translate(150 480)">
+    <rect width="192" height="92" rx="22" fill="#14532D" fill-opacity="0.9"/>
+    <rect x="220" width="192" height="92" rx="22" fill="#16A34A" fill-opacity="0.9"/>
+    <rect x="440" width="192" height="92" rx="22" fill="#EAB308" fill-opacity="0.9"/>
+    <rect x="660" width="192" height="92" rx="22" fill="#E2E8F0"/>
+  </g>
+  <text x="198" y="535" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">HTML</text>
+  <text x="422" y="535" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">CSS</text>
+  <text x="640" y="535" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Teamwork</text>
+  <text x="856" y="535" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Semester</text>
+</svg>
