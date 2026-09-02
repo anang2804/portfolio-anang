@@ -932,15 +932,44 @@ function ProjectDetailPage({ project, onBack }) {
 }
 
 const stack = [
-  "Next.js",
-  "React",
-  "TypeScript",
-  "Tailwind CSS",
-  "PostgreSQL",
-  "Prisma",
-  "Supabase",
-  "Figma",
-  "Git",
+  { name: "Next.js", icon: "nextdotjs", color: "000000" },
+  { name: "React", icon: "react", color: "61DAFB" },
+  { name: "TypeScript", icon: "typescript", color: "3178C6" },
+  { name: "Tailwind CSS", icon: "tailwindcss", color: "06B6D4" },
+  { name: "Supabase", icon: "supabase", color: "3FCF8E" },
+  { name: "Figma", icon: "figma", color: "F24E1E" },
+  { name: "Cypress", icon: "cypress", color: "17202C" },
+  {
+    name: "Jam.dev",
+    icon: "jamdotdev",
+    color: "F8B84E",
+    image: "https://img.icons8.com/color/96/jam.png",
+  },
+  {
+    name: "Microsoft",
+    icon: "microsoft",
+    color: "5E5E5E",
+    image: "https://api.iconify.design/logos:microsoft-icon.svg",
+  },
+  {
+    name: "Microsoft Excel",
+    icon: "microsoftexcel",
+    color: "217346",
+    image: "https://img.icons8.com/color/96/microsoft-excel-2019.png",
+  },
+  {
+    name: "Microsoft Word",
+    icon: "microsoftword",
+    color: "2B579A",
+    image: "https://img.icons8.com/color/96/microsoft-word-2019.png",
+  },
+  {
+    name: "Microsoft PowerPoint",
+    icon: "microsoftpowerpoint",
+    color: "D24726",
+    image: "https://img.icons8.com/color/96/microsoft-powerpoint-2019.png",
+  },
+  { name: "JavaScript", icon: "javascript", color: "F7DF1E" },
 ];
 
 const certifications = [
@@ -1139,7 +1168,7 @@ export default function Portfolio() {
         </div>
       </header>
 
-      {/* ABOUT / STACK */}
+      {/* ABOUT / TOOLS */}
       <section
         id="about"
         className="max-w-5xl mx-auto px-6 py-14 border-t"
@@ -1177,13 +1206,29 @@ export default function Portfolio() {
               className="pf-mono text-xs tracking-wider mb-3"
               style={{ color: "var(--slate)" }}
             >
-              STACK
+              TOOLS
             </p>
             <div className="flex flex-wrap gap-2">
-              {stack.map((s) => (
-                <span key={s} className="pf-pill px-3 py-1.5 text-xs">
-                  {s}
-                </span>
+              {stack.map((tool) => (
+                <div
+                  key={tool.name}
+                  className="pf-card flex min-w-[88px] flex-col items-center justify-center gap-2 px-3 py-3"
+                  title={tool.name}
+                >
+                  <img
+                    src={
+                      tool.image ||
+                      `https://cdn.simpleicons.org/${tool.icon}/${tool.color}`
+                    }
+                    alt={`${tool.name} logo`}
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                  />
+                  <span className="pf-mono text-[10px] text-center leading-tight">
+                    {tool.name}
+                  </span>
+                </div>
               ))}
             </div>
           </div>
