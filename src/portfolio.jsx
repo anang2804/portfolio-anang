@@ -324,6 +324,61 @@ const TOKENS = `
     .pf-caret { animation: none; }
     .pf-card { transition: none; }
   }
+  .pf-cert-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .pf-cert-thumb-wrap {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+  }
+  .pf-cert-thumb-btn {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: block;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    box-shadow: 0 2px 8px -2px rgba(16, 24, 43, 0.14);
+    overflow: hidden;
+    transform: rotate(-5deg);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .pf-cert-thumb-btn:hover {
+    transform: rotate(-5deg) scale(1.05);
+    box-shadow: 0 6px 16px -4px rgba(16, 24, 43, 0.22);
+  }
+  .pf-cert-thumb-btn img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    display: block;
+  }
+  .pf-cert-thumb-pdf {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    box-shadow: 0 2px 8px -2px rgba(16, 24, 43, 0.14);
+    background: var(--paper-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transform: rotate(-5deg);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .pf-cert-thumb-pdf:hover {
+    transform: rotate(-5deg) scale(1.05);
+    box-shadow: 0 6px 16px -4px rgba(16, 24, 43, 0.22);
+  }
+  @media (max-width: 640px) {
+    .pf-cert-thumb-wrap {
+      display: none;
+    }
+  }
 `;
 
 const organizationCommits = [
@@ -732,11 +787,13 @@ const certifications = [
     title: "ReactJS For Front End Website Developer",
     org: "Hacktiv8 (MSIB) Angkatan 7",
     date: "Sep — Des 2024",
+    certificateFile: { type: "image", src: "/setif studpen hacktiv.jpg" },
   },
   {
     title: "Kelas Dasar Microsoft Excel Administrasi Perkantoran",
     org: "YEC.co.id",
     date: "Jul 2026",
+    certificateFile: { type: "image", src: "/yec.jpg" },
   },
 ];
 
@@ -1196,21 +1253,55 @@ export default function Portfolio() {
         </p>
         <div className="grid sm:grid-cols-2 gap-4">
           {certifications.map((c) => (
-            <div key={c.title} className="pf-card p-5">
-              <div className="flex items-start justify-between gap-3">
-                <h4 className="pf-display text-base font-semibold leading-snug">
-                  {c.title}
-                </h4>
-                <span
-                  className="pf-mono text-[10px] whitespace-nowrap mt-1"
-                  style={{ color: "var(--gold)" }}
-                >
-                  {c.date}
-                </span>
+            <div key={c.title} className="pf-card pf-cert-card p-5">
+              <div style={{ paddingRight: c.certificateFile ? "80px" : "0" }}>
+                <div className="flex items-start justify-between gap-3">
+                  <h4 className="pf-display text-base font-semibold leading-snug">
+                    {c.title}
+                  </h4>
+                  <span
+                    className="pf-mono text-[10px] whitespace-nowrap mt-1"
+                    style={{ color: "var(--gold)" }}
+                  >
+                    {c.date}
+                  </span>
+                </div>
+                <p className="text-sm mt-2" style={{ color: "var(--ink-soft)" }}>
+                  {c.org}
+                </p>
               </div>
-              <p className="text-sm mt-2" style={{ color: "var(--ink-soft)" }}>
-                {c.org}
-              </p>
+              {c.certificateFile && (
+                <div className="pf-cert-thumb-wrap">
+                  {c.certificateFile.type === "image" ? (
+                    <button
+                      type="button"
+                      className="pf-cert-thumb-btn"
+                      title="Lihat sertifikat"
+                      onClick={() =>
+                        setModalAttachment({
+                          src: c.certificateFile.src,
+                          label: c.title,
+                        })
+                      }
+                    >
+                      <img
+                        src={c.certificateFile.src}
+                        alt={`Sertifikat ${c.title}`}
+                      />
+                    </button>
+                  ) : (
+                    <a
+                      href={c.certificateFile.src}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="pf-cert-thumb-pdf"
+                      title="Buka sertifikat PDF"
+                    >
+                      <FileText size={22} style={{ color: "var(--gold)" }} />
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>
