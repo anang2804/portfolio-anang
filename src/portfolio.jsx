@@ -475,6 +475,7 @@ const projects = [
     ],
     link: "https://codin-ypm.vercel.app",
     linkLabel: "codin-ypm.vercel.app",
+    githubUrl: "https://github.com/anang2804/Codin",
   },
   {
     slug: "suzuki-dealer-website",
@@ -488,6 +489,7 @@ const projects = [
     stack: ["Next.js (App Router)", "React", "TypeScript", "Tailwind CSS"],
     link: "https://suzukisalesjatim.vercel.app",
     linkLabel: "suzukisalesjatim.vercel.app",
+    githubUrl: "https://github.com/anang2804/salesweb",
   },
   {
     slug: "tomadon",
@@ -501,6 +503,7 @@ const projects = [
     stack: ["HTML", "CSS"],
     link: "https://github.com/zainiirochman/TomadOn",
     linkLabel: "github.com/zainiirochman/TomadOn",
+    githubUrl: "https://github.com/zainiirochman/TomadOn",
   },
   {
     slug: "lapindo-uiux",
@@ -515,6 +518,18 @@ const projects = [
     link: "https://www.figma.com/design/HZzq61YmUOWDAQzHfHNEop/Lapindo?m=auto&t=itxJfww4Be0V8z6R-6",
     linkLabel: "figma.com/design/Lapindo",
   },
+  {
+    slug: "cypress-orangehrm-automation",
+    name: "QA Automation Testing — OrangeHRM",
+    status: "dev",
+    statusLabel: "in progress",
+    period: "Jul 2026 — Sekarang",
+    cover: "/cypress-orangehrm.png",
+    description:
+      "Automation testing suite untuk aplikasi HR management OrangeHRM menggunakan Cypress, mencakup skenario pengujian fungsional (login, manajemen data karyawan, dsb) untuk memastikan reliabilitas aplikasi.",
+    stack: ["Cypress", "JavaScript"],
+    githubUrl: "https://github.com/anang2804/cypress-orangeHRM-automation",
+  },
 ];
 
 function getProjectSlugFromLocation() {
@@ -527,6 +542,14 @@ function getProjectSlugFromLocation() {
   return match ? decodeURIComponent(match[1]) : null;
 }
 
+function isAllProjectsPage() {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  return window.location.hash.replace(/^#/, "") === "projects=all";
+}
+
 function getOrgInitials(org) {
   return org
     .split(/\s+/)
@@ -534,6 +557,136 @@ function getOrgInitials(org) {
     .slice(0, 2)
     .map((w) => w[0].toUpperCase())
     .join("");
+}
+
+const monthMap = {
+  jan: 0, januari: 0,
+  feb: 1, februari: 1,
+  mar: 2, maret: 2,
+  apr: 3, april: 3,
+  mei: 4,
+  jun: 5, juni: 5,
+  jul: 6, juli: 6,
+  agu: 7, agustus: 7,
+  sep: 8, september: 8,
+  okt: 9, oktober: 9,
+  nov: 10, november: 10,
+  des: 11, desember: 11,
+};
+
+function parsePeriodToDate(period) {
+  if (!period || period === "—") return new Date(0);
+  const parts = period.split(/[—\-–]/).map((p) => p.trim());
+  const lastPart = parts[parts.length - 1];
+  const tokens = lastPart.split(/\s+/);
+  let year = 1970;
+  let month = 0;
+  for (const token of tokens) {
+    const num = parseInt(token, 10);
+    if (!isNaN(num) && num >= 1900 && num <= 2100) {
+      year = num;
+    } else {
+      const lower = token.toLowerCase().replace(/\./g, "");
+      if (monthMap[lower] !== undefined) {
+        month = monthMap[lower];
+      }
+    }
+  }
+  return new Date(year, month, 1);
+}
+
+function getSortedProjects() {
+  return [...projects].sort((a, b) => {
+    const aInProgress = a.statusLabel === "in progress";
+    const bInProgress = b.statusLabel === "in progress";
+    if (aInProgress !== bInProgress) return bInProgress - aInProgress;
+
+    const dateA = parsePeriodToDate(a.period);
+    const dateB = parsePeriodToDate(b.period);
+    return dateB - dateA;
+  });
+}
+
+function ProjectCard({ project, onOpenDetail }) {
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={() => onOpenDetail(project.slug)}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          onOpenDetail(project.slug);
+        }
+      }}
+      className="pf-card p-6 flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)] focus:ring-offset-2"
+    >
+      <div>
+        <h3 className="pf-display text-xl font-semibold">{project.name}</h3>
+      </div>
+      <p
+        className="pf-mono text-xs mt-1"
+        style={{ color: "var(--ink-soft)" }}
+      >
+        {project.period}
+      </p>
+      <p
+        className="mt-3 text-sm leading-relaxed flex-1"
+        style={{ color: "var(--ink-soft)" }}
+      >
+        {project.description}
+      </p>
+      <div className="flex flex-wrap gap-1.5 mt-4">
+        {project.stack.map((stackItem) => (
+          <span key={stackItem} className="pf-pill px-2 py-1 text-[10px]">
+            {stackItem}
+          </span>
+        ))}
+      </div>
+      <div
+        className="mt-5 pt-4 border-t"
+        style={{ borderColor: "var(--line)" }}
+      >
+        <div className="flex items-center justify-between gap-3 flex-wrap">
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              onOpenDetail(project.slug);
+            }}
+            className="pf-mono text-xs inline-flex items-center gap-1.5 pf-link-underline"
+            style={{ color: "var(--ink)" }}
+          >
+            Lihat detail <ChevronRight size={12} />
+          </button>
+          {project.link ? (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(event) => event.stopPropagation()}
+              className="pf-mono text-xs inline-flex items-center gap-1.5 pf-link-underline"
+              style={{ color: "var(--ink)" }}
+            >
+              {project.linkLabel} <ExternalLink size={12} />
+            </a>
+          ) : (
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                onOpenDetail(project.slug);
+              }}
+              className="pf-mono text-xs inline-flex items-center gap-1.5 pf-link-underline"
+              style={{ color: "var(--ink)" }}
+            >
+              Detail project <ChevronRight size={12} />
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function OrgLogo({ logo, org }) {
@@ -678,7 +831,7 @@ function ProjectDetailPage({ project, onBack }) {
               />
             </div>
             <div className="pf-card p-6 sm:p-7">
-              <div className="flex items-start justify-between gap-3">
+              <div>
                 <div>
                   <p
                     className="pf-mono text-xs"
@@ -690,17 +843,6 @@ function ProjectDetailPage({ project, onBack }) {
                     {project.name}
                   </h1>
                 </div>
-                <span
-                  className={`pf-mono text-[10px] px-2 py-1 rounded-full ${
-                    project.status === "live"
-                      ? "pf-status-live"
-                      : project.status === "dev"
-                        ? "pf-status-dev"
-                        : "pf-status-course"
-                  }`}
-                >
-                  {project.statusLabel}
-                </span>
               </div>
               <p
                 className="pf-mono text-xs mt-2"
@@ -751,6 +893,26 @@ function ProjectDetailPage({ project, onBack }) {
                     style={{ background: "var(--ink)", color: "var(--paper)" }}
                   >
                     Buka website project <ExternalLink size={14} />
+                  </a>
+                ) : null}
+                {project.githubUrl ? (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full pf-display text-sm font-medium pf-card"
+                    style={{ color: "var(--ink)" }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23A11.52 11.52 0 0 1 12 6.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    Lihat repository
                   </a>
                 ) : null}
                 <button
@@ -814,11 +976,13 @@ export default function Portfolio() {
   const [activeProjectSlug, setActiveProjectSlug] = useState(
     getProjectSlugFromLocation,
   );
+  const [allProjectsPage, setAllProjectsPage] = useState(isAllProjectsPage);
   const [modalAttachment, setModalAttachment] = useState(null);
 
   useEffect(() => {
     const handleHashChange = () => {
       setActiveProjectSlug(getProjectSlugFromLocation());
+      setAllProjectsPage(isAllProjectsPage());
     };
 
     window.addEventListener("hashchange", handleHashChange);
@@ -830,8 +994,17 @@ export default function Portfolio() {
   );
 
   const openProjectDetail = (slug) => {
-    window.location.hash = `project=${slug}`;
+    window.location.assign(`#project=${slug}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const openAllProjects = () => {
+    window.location.assign("#projects=all");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const backToPortfolioProjects = () => {
+    window.location.assign("#projects");
   };
 
   const closeProjectDetail = () => {
@@ -1146,97 +1319,25 @@ export default function Portfolio() {
           PROJECTS
         </p>
         <div className="grid sm:grid-cols-2 gap-5">
-          {projects.map((p) => (
-            <div
-              key={p.name}
-              role="button"
-              tabIndex={0}
-              onClick={() => openProjectDetail(p.slug)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  openProjectDetail(p.slug);
-                }
-              }}
-              className="pf-card p-6 flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)] focus:ring-offset-2"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <h3 className="pf-display text-xl font-semibold">{p.name}</h3>
-                <span
-                  className={`pf-mono text-[10px] px-2 py-1 rounded-full ${
-                    p.status === "live"
-                      ? "pf-status-live"
-                      : p.status === "dev"
-                        ? "pf-status-dev"
-                        : "pf-status-course"
-                  }`}
-                >
-                  {p.statusLabel}
-                </span>
-              </div>
-              <p
-                className="pf-mono text-xs mt-1"
-                style={{ color: "var(--ink-soft)" }}
-              >
-                {p.period}
-              </p>
-              <p
-                className="mt-3 text-sm leading-relaxed flex-1"
-                style={{ color: "var(--ink-soft)" }}
-              >
-                {p.description}
-              </p>
-              <div className="flex flex-wrap gap-1.5 mt-4">
-                {p.stack.map((s) => (
-                  <span key={s} className="pf-pill px-2 py-1 text-[10px]">
-                    {s}
-                  </span>
-                ))}
-              </div>
-              <div
-                className="mt-5 pt-4 border-t"
-                style={{ borderColor: "var(--line)" }}
-              >
-                <div className="flex items-center justify-between gap-3 flex-wrap">
-                  <button
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      openProjectDetail(p.slug);
-                    }}
-                    className="pf-mono text-xs inline-flex items-center gap-1.5 pf-link-underline"
-                    style={{ color: "var(--ink)" }}
-                  >
-                    Lihat detail <ChevronRight size={12} />
-                  </button>
-                  {p.link ? (
-                    <a
-                      href={p.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={(event) => event.stopPropagation()}
-                      className="pf-mono text-xs inline-flex items-center gap-1.5 pf-link-underline"
-                      style={{ color: "var(--ink)" }}
-                    >
-                      {p.linkLabel} <ExternalLink size={12} />
-                    </a>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        openProjectDetail(p.slug);
-                      }}
-                      className="pf-mono text-xs inline-flex items-center gap-1.5 pf-link-underline"
-                      style={{ color: "var(--ink)" }}
-                    >
-                      Detail project <ChevronRight size={12} />
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
+          {getSortedProjects()
+            .slice(0, 4)
+            .map((p) => (
+              <ProjectCard
+                key={p.name}
+                project={p}
+                onOpenDetail={openProjectDetail}
+              />
           ))}
+        </div>
+        <div className="mt-8 text-center">
+          <button
+            type="button"
+            onClick={openAllProjects}
+            className="pf-mono text-xs inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full pf-card"
+            style={{ color: "var(--ink)" }}
+          >
+            Lihat semua project <ChevronRight size={12} />
+          </button>
         </div>
       </section>
 
@@ -1399,10 +1500,66 @@ export default function Portfolio() {
     </div>
   );
 
+  const allProjectsPageView = (
+    <div className="pf-root min-h-screen">
+      <style>{TOKENS}</style>
+
+      <nav className="pf-nav sticky top-0 z-20">
+        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+          <div className="pf-mono text-sm" style={{ color: "var(--gold)" }}>
+            &gt; anang<span style={{ color: "var(--ink)" }}>_ardiansyah</span>
+          </div>
+          <button
+            type="button"
+            onClick={backToPortfolioProjects}
+            className="pf-mono text-xs px-4 py-2 rounded-full pf-card"
+            style={{ color: "var(--ink)" }}
+          >
+            Kembali ke portfolio
+          </button>
+        </div>
+      </nav>
+
+      <main className="max-w-5xl mx-auto px-6 py-10 sm:py-14">
+        <button
+          type="button"
+          onClick={backToPortfolioProjects}
+          className="pf-mono text-xs mb-6 inline-flex items-center gap-2 pf-link-underline"
+          style={{ color: "var(--ink)" }}
+        >
+          <ChevronRight size={14} className="rotate-180" />
+          Kembali ke portfolio
+        </button>
+        <p
+          className="pf-mono text-xs tracking-wider mb-2"
+          style={{ color: "var(--slate)" }}
+        >
+          PROJECTS
+        </p>
+        <h1 className="pf-display text-3xl sm:text-4xl font-semibold mb-8">
+          Semua Project
+        </h1>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {getSortedProjects().map((project) => (
+            <ProjectCard
+              key={project.name}
+              project={project}
+              onOpenDetail={openProjectDetail}
+            />
+          ))}
+        </div>
+      </main>
+    </div>
+  );
+
   if (activeProject) {
     return (
       <ProjectDetailPage project={activeProject} onBack={closeProjectDetail} />
     );
+  }
+
+  if (allProjectsPage) {
+    return allProjectsPageView;
   }
 
   return portfolioPage;
