@@ -1104,11 +1104,12 @@ export default function Portfolio() {
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href="/CV%20ATS%20MOCH.%20ANANG%20ARDIANSYAH.pdf"
-                download="CV ATS MOCH. ANANG ARDIANSYAH.pdf"
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full pf-display text-sm font-medium"
                 style={{ background: "var(--ink)", color: "var(--paper)" }}
               >
-                Download CV <ChevronRight size={16} />
+                Lihat CV <ChevronRight size={16} />
               </a>
               <a
                 href="#contact"
