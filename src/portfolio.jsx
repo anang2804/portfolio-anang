@@ -748,7 +748,11 @@ function ProjectCard({ project, onOpenDetail }) {
 
 function LogoLoop({ logos, gap = 40 }) {
   const renderGroup = (groupKey) => (
-    <div className="pf-logo-loop-group" key={groupKey} aria-hidden={groupKey === "duplicate"}>
+    <div
+      className="pf-logo-loop-group"
+      key={groupKey}
+      aria-hidden={groupKey === "duplicate"}
+    >
       {logos.map((logo) => (
         <div
           className="pf-logo-loop-item"
@@ -1306,7 +1310,15 @@ export default function Portfolio() {
             >
               TOOLS
             </p>
-            <LogoLoop logos={techLogos} speed={70} direction="left" logoHeight={38} gap={34} hoverSpeed={0} scaleOnHover />
+            <LogoLoop
+              logos={techLogos}
+              speed={70}
+              direction="left"
+              logoHeight={38}
+              gap={34}
+              hoverSpeed={0}
+              scaleOnHover
+            />
           </div>
         </div>
       </section>
