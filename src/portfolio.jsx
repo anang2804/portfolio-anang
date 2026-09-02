@@ -9,6 +9,16 @@ import {
   X,
   FileText,
 } from "lucide-react";
+import {
+  SiCypress,
+  SiFigma,
+  SiJavascript,
+  SiNextdotjs,
+  SiReact,
+  SiSupabase,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 
 import { useEffect, useState, useCallback } from "react";
 
@@ -320,9 +330,51 @@ const TOKENS = `
     transition: background-size .25s ease;
   }
   .pf-link-underline:hover { background-size: 100% 2px; }
+  .pf-logo-loop {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  .pf-logo-loop-track {
+    display: flex;
+    width: max-content;
+    animation: pf-logo-loop-scroll 34s linear infinite;
+  }
+  .pf-logo-loop:hover .pf-logo-loop-track { animation-play-state: paused; }
+  .pf-logo-loop-group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .pf-logo-loop-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: var(--ink);
+  }
+  .pf-logo-loop-item svg,
+  .pf-logo-loop-item img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+  }
+  @keyframes pf-logo-loop-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (max-width: 480px) {
+    .pf-logo-loop-item svg,
+    .pf-logo-loop-item img {
+      width: 32px;
+      height: 32px;
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
     .pf-caret { animation: none; }
     .pf-card { transition: none; }
+    .pf-logo-loop-track { animation: none; }
   }
   .pf-cert-card {
     position: relative;
@@ -694,6 +746,35 @@ function ProjectCard({ project, onOpenDetail }) {
   );
 }
 
+function LogoLoop({ logos, gap = 40 }) {
+  const renderGroup = (groupKey) => (
+    <div className="pf-logo-loop-group" key={groupKey} aria-hidden={groupKey === "duplicate"}>
+      {logos.map((logo) => (
+        <div
+          className="pf-logo-loop-item"
+          key={`${groupKey}-${logo.title}`}
+          style={{ marginRight: gap }}
+          title={logo.title}
+        >
+          {logo.node}
+          <span className="pf-mono text-[10px] mt-2 whitespace-nowrap">
+            {logo.title}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+
+  return (
+    <div className="pf-logo-loop" aria-label="Tools yang digunakan">
+      <div className="pf-logo-loop-track">
+        {renderGroup("primary")}
+        {renderGroup("duplicate")}
+      </div>
+    </div>
+  );
+}
+
 function OrgLogo({ logo, org }) {
   if (logo) {
     return (
@@ -946,12 +1027,6 @@ const stack = [
     image: "https://img.icons8.com/color/96/jam.png",
   },
   {
-    name: "Microsoft",
-    icon: "microsoft",
-    color: "5E5E5E",
-    image: "https://api.iconify.design/logos:microsoft-icon.svg",
-  },
-  {
     name: "Microsoft Excel",
     icon: "microsoftexcel",
     color: "217346",
@@ -971,6 +1046,29 @@ const stack = [
   },
   { name: "JavaScript", icon: "javascript", color: "F7DF1E" },
 ];
+
+const toolIconMap = {
+  nextdotjs: SiNextdotjs,
+  react: SiReact,
+  typescript: SiTypescript,
+  tailwindcss: SiTailwindcss,
+  supabase: SiSupabase,
+  figma: SiFigma,
+  cypress: SiCypress,
+  javascript: SiJavascript,
+};
+
+const techLogos = stack.map((tool) => {
+  const ToolIcon = toolIconMap[tool.icon];
+  return {
+    title: tool.name,
+    node: ToolIcon ? (
+      <ToolIcon color={`#${tool.color}`} aria-hidden="true" />
+    ) : (
+      <img src={tool.image} alt="" aria-hidden="true" loading="lazy" />
+    ),
+  };
+});
 
 const certifications = [
   {
@@ -1174,7 +1272,7 @@ export default function Portfolio() {
         className="max-w-5xl mx-auto px-6 py-14 border-t"
         style={{ borderColor: "var(--line)" }}
       >
-        <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-10">
+        <div className="space-y-10">
           <div>
             <p
               className="pf-mono text-xs tracking-wider mb-3"
@@ -1208,29 +1306,7 @@ export default function Portfolio() {
             >
               TOOLS
             </p>
-            <div className="flex flex-wrap gap-2">
-              {stack.map((tool) => (
-                <div
-                  key={tool.name}
-                  className="pf-card flex min-w-[88px] flex-col items-center justify-center gap-2 px-3 py-3"
-                  title={tool.name}
-                >
-                  <img
-                    src={
-                      tool.image ||
-                      `https://cdn.simpleicons.org/${tool.icon}/${tool.color}`
-                    }
-                    alt={`${tool.name} logo`}
-                    width="36"
-                    height="36"
-                    loading="lazy"
-                  />
-                  <span className="pf-mono text-[10px] text-center leading-tight">
-                    {tool.name}
-                  </span>
-                </div>
-              ))}
-            </div>
+            <LogoLoop logos={techLogos} speed={70} direction="left" logoHeight={38} gap={34} hoverSpeed={0} scaleOnHover />
           </div>
         </div>
       </section>
