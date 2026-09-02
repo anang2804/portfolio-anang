@@ -635,9 +635,6 @@ function ProjectCard({ project, onOpenDetail }) {
       <div>
         <h3 className="pf-display text-xl font-semibold">{project.name}</h3>
       </div>
-      <p className="pf-mono text-xs mt-1" style={{ color: "var(--ink-soft)" }}>
-        {project.period}
-      </p>
       <p
         className="mt-3 text-sm leading-relaxed flex-1"
         style={{ color: "var(--ink-soft)" }}
@@ -852,12 +849,6 @@ function ProjectDetailPage({ project, onBack }) {
                   </h1>
                 </div>
               </div>
-              <p
-                className="pf-mono text-xs mt-2"
-                style={{ color: "var(--ink-soft)" }}
-              >
-                {project.period}
-              </p>
               <p
                 className="mt-4 text-base leading-relaxed"
                 style={{ color: "var(--ink-soft)" }}
