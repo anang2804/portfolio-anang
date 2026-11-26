@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#fffdf8"/>
+  <rect x="48" y="48" width="1184" height="624" fill="none" stroke="#e6dfd4" stroke-width="4"/>
+  <text x="96" y="130" fill="#e07a3d" font-family="Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="4">NETWORKING</text>
+  <text x="96" y="215" fill="#141414" font-family="Georgia,serif" font-size="76" font-weight="700">Routing</text>
+  <rect x="540" y="320" width="200" height="200" fill="#fffdf8" stroke="#141414" stroke-width="12"/>
+  <circle cx="640" cy="420" r="54" fill="#e07a3d"/>
+  <circle cx="220" cy="420" r="48" fill="#fffdf8" stroke="#141414" stroke-width="10"/>
+  <circle cx="1060" cy="420" r="48" fill="#fffdf8" stroke="#141414" stroke-width="10"/>
+  <path d="M268 420H540M740 420H1012" fill="none" stroke="#141414" stroke-width="12"/>
+  <path d="M500 420l28-28m-28 28 28 28M1012 420l-28-28m28 28-28 28" fill="none" stroke="#141414" stroke-width="8"/>
+  <text x="220" y="510" text-anchor="middle" fill="#141414" font-family="Arial,sans-serif" font-size="24" font-weight="700">NETWORK A</text>
+  <text x="1060" y="510" text-anchor="middle" fill="#141414" font-family="Arial,sans-serif" font-size="24" font-weight="700">NETWORK B</text>
+</svg>

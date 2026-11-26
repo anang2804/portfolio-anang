@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#fffdf8"/>
+  <rect x="48" y="48" width="1184" height="624" fill="none" stroke="#e6dfd4" stroke-width="4"/>
+  <text x="96" y="130" fill="#e07a3d" font-family="Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="4">SERVER</text>
+  <text x="96" y="215" fill="#141414" font-family="Georgia,serif" font-size="76" font-weight="700">FTP</text>
+  <rect x="210" y="340" width="240" height="220" fill="#fffdf8" stroke="#141414" stroke-width="12"/>
+  <rect x="830" y="340" width="240" height="220" fill="#fffdf8" stroke="#141414" stroke-width="12"/>
+  <path d="M450 450H830" fill="none" stroke="#141414" stroke-width="12"/>
+  <path d="M770 410l60 40-60 40M510 410l-60 40 60 40" fill="none" stroke="#e07a3d" stroke-width="12" stroke-linejoin="round"/>
+  <rect x="270" y="410" width="120" height="80" fill="#fff4ea" stroke="#141414" stroke-width="8"/>
+  <rect x="890" y="410" width="120" height="80" fill="#fff4ea" stroke="#141414" stroke-width="8"/>
+</svg>

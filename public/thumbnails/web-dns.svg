@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#fffdf8"/>
+  <rect x="48" y="48" width="1184" height="624" fill="none" stroke="#e6dfd4" stroke-width="4"/>
+  <text x="96" y="130" fill="#e07a3d" font-family="Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="4">SERVER</text>
+  <text x="96" y="215" fill="#141414" font-family="Georgia,serif" font-size="76" font-weight="700">Web + DNS</text>
+  <rect x="190" y="340" width="390" height="220" fill="#fffdf8" stroke="#141414" stroke-width="12"/>
+  <rect x="700" y="340" width="390" height="220" fill="#fffdf8" stroke="#141414" stroke-width="12"/>
+  <circle cx="385" cy="450" r="52" fill="#e07a3d"/>
+  <circle cx="895" cy="450" r="52" fill="#e07a3d"/>
+  <text x="385" y="455" text-anchor="middle" fill="#fffdf8" font-family="Arial,sans-serif" font-size="26" font-weight="700">WWW</text>
+  <text x="895" y="455" text-anchor="middle" fill="#fffdf8" font-family="Arial,sans-serif" font-size="26" font-weight="700">DNS</text>
+  <path d="M580 450H700" fill="none" stroke="#141414" stroke-width="12" stroke-dasharray="20 14"/>
+</svg>

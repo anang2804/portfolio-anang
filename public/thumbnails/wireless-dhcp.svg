@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#fffdf8"/>
+  <rect x="48" y="48" width="1184" height="624" fill="none" stroke="#e6dfd4" stroke-width="4"/>
+  <text x="96" y="130" fill="#e07a3d" font-family="Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="4">NETWORKING</text>
+  <text x="96" y="215" fill="#141414" font-family="Georgia,serif" font-size="76" font-weight="700">Wireless + DHCP</text>
+  <circle cx="640" cy="440" r="34" fill="#e07a3d"/>
+  <path d="M540 440a100 100 0 0 1 200 0M500 400a140 140 0 0 1 280 0M460 360a180 180 0 0 1 360 0" fill="none" stroke="#141414" stroke-width="10"/>
+  <circle cx="300" cy="520" r="55" fill="#fffdf8" stroke="#141414" stroke-width="10"/>
+  <circle cx="980" cy="520" r="55" fill="#fffdf8" stroke="#141414" stroke-width="10"/>
+  <path d="M355 520H925" fill="none" stroke="#e07a3d" stroke-width="12" stroke-dasharray="18 14"/>
+  <text x="300" y="610" text-anchor="middle" fill="#141414" font-family="Arial,sans-serif" font-size="24" font-weight="700">CLIENT</text>
+  <text x="980" y="610" text-anchor="middle" fill="#141414" font-family="Arial,sans-serif" font-size="24" font-weight="700">DHCP</text>
+</svg>

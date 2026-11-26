@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#fffdf8"/>
+  <rect x="48" y="48" width="1184" height="624" fill="none" stroke="#e6dfd4" stroke-width="4"/>
+  <text x="96" y="130" fill="#e07a3d" font-family="Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="4">NETWORKING</text>
+  <text x="96" y="215" fill="#141414" font-family="Georgia,serif" font-size="76" font-weight="700">OSPF</text>
+  <path d="M240 440H640L1040 440M440 440L640 310 840 440" fill="none" stroke="#141414" stroke-width="12"/>
+  <rect x="190" y="390" width="100" height="100" fill="#fffdf8" stroke="#141414" stroke-width="10"/>
+  <rect x="590" y="260" width="100" height="100" fill="#fff4ea" stroke="#141414" stroke-width="10"/>
+  <rect x="590" y="390" width="100" height="100" fill="#fffdf8" stroke="#141414" stroke-width="10"/>
+  <rect x="990" y="390" width="100" height="100" fill="#fffdf8" stroke="#141414" stroke-width="10"/>
+  <circle cx="240" cy="440" r="24" fill="#e07a3d"/>
+  <circle cx="640" cy="310" r="24" fill="#e07a3d"/>
+  <circle cx="640" cy="440" r="24" fill="#e07a3d"/>
+  <circle cx="1040" cy="440" r="24" fill="#e07a3d"/>
+</svg>
