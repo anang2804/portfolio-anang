@@ -7,9 +7,9 @@
 :root {
   --paper: #fffdf8;
   --ink: #141414;
-  --muted: oklch(0.97 0 0);
+  --muted: #625d55;
   --line: #e6dfd4;
-  --accent: oklch(0.97 0 0);
+  --accent: #a64b18;
   --accent-ink: #fffdf8;
   --chip: #fff4ea;
   --background: oklch(1 0 0);

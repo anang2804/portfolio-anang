@@ -61,7 +61,7 @@ export default function Home() {
                 sequences={[
                   { text: "QA", deleteAfter: true },
                   { text: "front-end", deleteAfter: true },
-                  { text: "networking", deleteAfter: false },
+                  { text: "IT Support", deleteAfter: false },
                 ]}
                 className="!justify-end !text-ink"
                 textClassName="font-display !text-[clamp(2.25rem,3.6vw,3.15rem)] font-extrabold uppercase !leading-[0.86] tracking-[-0.045em]"
