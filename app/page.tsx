@@ -80,7 +80,7 @@ export default function Home() {
               <a
                 href={site.cv.href}
                 download
-                className="inline-flex min-h-11 items-center rounded-full border border-ink px-4 text-sm hover:bg-ink hover:text-paper"
+                className="inline-flex min-h-11 items-center rounded-full border border-ink bg-paper px-4 text-sm text-ink transition-colors hover:bg-ink hover:text-paper active:translate-y-px"
               >
                 Unduh CV
               </a>
