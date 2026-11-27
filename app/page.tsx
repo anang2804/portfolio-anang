@@ -358,25 +358,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="portfolio-section border-t border-line">
-        <div className="mx-auto grid max-w-5xl gap-6 px-5 py-16 md:grid-cols-[180px_1fr]">
-          <h2 className="font-serif text-3xl tracking-tight">Kontak</h2>
+      <section
+        id="contact"
+        className="portfolio-section border-t border-line"
+      >
+        <div className="mx-auto grid max-w-5xl items-center gap-8 px-5 py-16 md:grid-cols-[minmax(0,1fr)_280px] md:gap-12 md:px-8 md:py-20">
           <div className="max-w-xl">
-            <p className="leading-7">
+            <h2 className="font-serif text-accent">Kontak</h2>
+            <p className="leading-7 text-muted">
               Silakan hubungi saya melalui email atau kunjungi profil berikut.
             </p>
             <a
-              href={`mailto:${site.email}`}
-              className="mt-6 inline-flex min-h-11 items-center bg-ink px-4 text-sm text-paper hover:bg-[#333]"
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(site.email)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex min-h-11 items-center bg-ink px-5 text-sm text-paper transition-colors hover:bg-[#333]"
             >
               {site.email}
             </a>
-            <div className="mt-6 flex gap-5 text-sm">
+            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
               <a
                 href={site.links.github}
                 target="_blank"
                 rel="noreferrer"
-                className="underline underline-offset-4"
+                className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-accent"
               >
                 GitHub
               </a>
@@ -384,11 +389,21 @@ export default function Home() {
                 href={site.links.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="underline underline-offset-4"
+                className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-accent"
               >
                 LinkedIn
               </a>
             </div>
+          </div>
+          <div className="relative aspect-[3/4] w-full max-w-[250px] justify-self-center overflow-hidden border border-line bg-[#e6dfd4] md:max-w-[280px] md:justify-self-end">
+            <Image
+              src="/saya2.jpeg"
+              alt="Moch. Anang Ardiansyah"
+              width={960}
+              height={1280}
+              sizes="(max-width: 767px) 100vw, 40vw"
+              className="h-full w-full object-cover object-center"
+            />
           </div>
         </div>
       </section>
