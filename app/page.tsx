@@ -69,7 +69,7 @@ export default function Home() {
             </div>
           </HeroMotion>
 
-          <div className="absolute bottom-5 right-5 z-30 flex flex-col items-end gap-2 md:hidden">
+          <div className="absolute bottom-5 right-5 z-30 flex flex-col items-end gap-2 md:flex-row">
             <Link
               href="/#projects"
               className="inline-flex min-h-11 items-center rounded-full bg-ink px-4 text-sm text-paper hover:bg-[#2a2a2a] active:translate-y-px"
@@ -320,8 +320,7 @@ export default function Home() {
           <h2 className="font-serif text-3xl tracking-tight">Kontak</h2>
           <div className="max-w-xl">
             <p className="leading-7">
-              Email adalah jalur langsung. Tautan media sosial di bawah masih
-              kosong sampai profil resmi tersedia.
+              Silakan hubungi saya melalui email atau kunjungi profil berikut.
             </p>
             <a
               href={`mailto:${site.email}`}

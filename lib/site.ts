@@ -5,14 +5,14 @@ export const site = {
   headline: "QA, frontend, dan jaringan komputer.",
   intro:
     "Saya mendokumentasikan hasil membangun dan menguji: quality assurance, antarmuka frontend, dan jaringan komputer.",
-  email: "anang@example.com",
+  email: "mochanangardiansyah@gmail.com",
   links: {
-    github: "https://github.com",
-    linkedin: "https://www.linkedin.com",
+    github: "https://github.com/anang2804",
+    linkedin: "https://www.linkedin.com/in/anang28/",
   },
   cv: {
-    href: "/documents/cv.pdf",
-    ready: false,
+    href: "/Resume%20-%20Moch.%20Anang%20Ardiansyah.pdf",
+    ready: true,
   },
 } as const;
 
