@@ -23,12 +23,19 @@ export function ProjectFilter({ projects }: { projects: Project[] }) {
   const [showAll, setShowAll] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
+  const orderedProjects = useMemo(
+    () => [
+      ...projects.filter((project) => project.category === "networking"),
+      ...projects.filter((project) => project.category !== "networking"),
+    ],
+    [projects],
+  );
   const visible = useMemo(
     () =>
       active === "all"
-        ? projects
-        : projects.filter((project) => project.category === active),
-    [active, projects],
+        ? orderedProjects
+        : orderedProjects.filter((project) => project.category === active),
+    [active, orderedProjects],
   );
   const displayed = showAll ? visible : visible.slice(0, 6);
 

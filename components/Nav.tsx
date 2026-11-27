@@ -6,10 +6,10 @@ import { site } from "@/lib/site";
 
 const links = [
   { href: "/#about", label: "Tentang" },
+  { href: "/#education", label: "Pendidikan" },
   { href: "/#projects", label: "Proyek" },
   { href: "/#experience", label: "Pengalaman" },
   { href: "/#skills", label: "Keahlian" },
-  { href: "/#education", label: "Pendidikan" },
   { href: "/#certificates", label: "Sertifikat" },
   { href: "/#contact", label: "Kontak" },
 ];

@@ -110,7 +110,7 @@ export const projects: Project[] = [
     slug: "address-resolution-protocol",
     title: "Address Resolution Protocol (ARP)",
     category: "networking",
-    thumbnail: "/thumbnails/arp.svg",
+    thumbnail: "https://img.youtube.com/vi/SnHRXb5j6mE/hqdefault.jpg",
     summary:
       "Memahami proses ARP dalam jaringan komputer, termasuk mekanisme pemetaan alamat IP ke MAC Address untuk mendukung komunikasi antarperangkat.",
     overview:
@@ -136,7 +136,7 @@ export const projects: Project[] = [
     slug: "subnetting",
     title: "Subnetting",
     category: "networking",
-    thumbnail: "/thumbnails/subnetting.svg",
+    thumbnail: "https://img.youtube.com/vi/fUHeBOKW0nQ/hqdefault.jpg",
     summary:
       "Pembelajaran pembagian jaringan IP ke dalam subnet yang lebih kecil untuk memahami pengelolaan alamat IP, subnet mask, dan segmentasi jaringan.",
     overview:
@@ -162,7 +162,7 @@ export const projects: Project[] = [
     slug: "static-routing",
     title: "Static Routing",
     category: "networking",
-    thumbnail: "/thumbnails/routing.svg",
+    thumbnail: "https://img.youtube.com/vi/H5POpU37zSU/hqdefault.jpg",
     summary:
       "Praktik konfigurasi routing statis untuk menentukan jalur komunikasi antarjaringan melalui pengaturan rute secara manual pada router.",
     overview:
@@ -188,7 +188,7 @@ export const projects: Project[] = [
     slug: "dynamic-routing",
     title: "Dynamic Routing",
     category: "networking",
-    thumbnail: "/thumbnails/routing.svg",
+    thumbnail: "https://img.youtube.com/vi/Zql3xgTidNc/hqdefault.jpg",
     summary:
       "Mempelajari mekanisme routing dinamis yang memungkinkan router bertukar informasi rute dan menyesuaikan jalur komunikasi antarjaringan.",
     overview:
@@ -214,7 +214,7 @@ export const projects: Project[] = [
     slug: "ospf-routing",
     title: "OSPF Routing",
     category: "networking",
-    thumbnail: "/thumbnails/ospf.svg",
+    thumbnail: "https://img.youtube.com/vi/vmZh1nZqcVM/hqdefault.jpg",
     summary:
       "Pembelajaran dan konfigurasi protokol OSPF untuk menentukan jalur terbaik dalam komunikasi antarrouter pada jaringan.",
     overview:
@@ -240,7 +240,7 @@ export const projects: Project[] = [
     slug: "web-dns-server",
     title: "Web Server & DNS Server",
     category: "networking",
-    thumbnail: "/thumbnails/web-dns.svg",
+    thumbnail: "https://img.youtube.com/vi/IL6cq0hGwI0/hqdefault.jpg",
     summary:
       "Praktik konfigurasi Web Server dan DNS Server untuk memahami penyediaan layanan website serta penerjemahan nama domain menjadi alamat IP.",
     overview:
@@ -266,7 +266,7 @@ export const projects: Project[] = [
     slug: "ftp-server",
     title: "FTP Server",
     category: "networking",
-    thumbnail: "/thumbnails/ftp.svg",
+    thumbnail: "https://img.youtube.com/vi/SpCOjtzJyOE/hqdefault.jpg",
     summary:
       "Mempelajari konfigurasi FTP Server sebagai layanan transfer file dalam jaringan, serta memahami proses pertukaran file antara client dan server.",
     overview:
@@ -292,7 +292,7 @@ export const projects: Project[] = [
     slug: "mail-server",
     title: "Mail Server",
     category: "networking",
-    thumbnail: "/thumbnails/mail.svg",
+    thumbnail: "https://img.youtube.com/vi/_U0Kq52wtBQ/hqdefault.jpg",
     summary:
       "Mempelajari layanan Mail Server dan mekanisme komunikasi email dalam jaringan, termasuk peran server dalam proses pengiriman dan penerimaan pesan.",
     overview:
@@ -318,7 +318,7 @@ export const projects: Project[] = [
     slug: "wireless-dhcp-server",
     title: "Wireless & DHCP Server",
     category: "networking",
-    thumbnail: "/thumbnails/wireless-dhcp.svg",
+    thumbnail: "https://img.youtube.com/vi/MgD6bKHvRmk/hqdefault.jpg",
     summary:
       "Praktik jaringan wireless dan DHCP Server untuk memahami konektivitas nirkabel serta proses pemberian alamat IP secara otomatis kepada perangkat yang terhubung.",
     overview:

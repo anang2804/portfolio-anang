@@ -106,6 +106,104 @@ export default function Home() {
          </div>
        </section>
 
+      <section id="education" className="portfolio-section border-t border-line">
+        <div className="mx-auto max-w-5xl px-5 py-16">
+          <div className="flex items-baseline gap-4">
+            <h2 className="font-serif text-4xl tracking-[-0.04em] text-accent">
+              Pendidikan
+            </h2>
+            <div className="h-px flex-1 bg-line" />
+          </div>
+          <div className="mt-10 space-y-12">
+            {education.map((item) => (
+              <article
+                key={item.school}
+                className="grid gap-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-12"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden border border-line bg-[#f7ede0]">
+                  <Image
+                    src="/saya.jpeg"
+                    alt="Moch. Anang Ardiansyah mengenakan toga"
+                    fill
+                    sizes="(max-width: 1023px) 100vw, 40vw"
+                    className="object-cover object-[center_60%]"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <p className="font-display text-sm font-bold text-accent">
+                      {item.period}
+                    </p>
+                    {item.gpa && (
+                      <div className="border-l border-line pl-4">
+                        <p className="text-sm text-muted">IPK</p>
+                        <p className="font-serif text-xl font-bold text-accent">
+                          {item.gpa}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  <h3 className="mt-5 max-w-[18ch] font-serif text-3xl leading-tight tracking-tight md:text-4xl">
+                    {item.program}
+                  </h3>
+                  <div className="mt-6 flex items-center gap-4">
+                    <div className="size-16 shrink-0">
+                      <Image
+                        src="/unesa.png"
+                        alt="Logo Universitas Negeri Surabaya"
+                        width={4096}
+                        height={4096}
+                        sizes="64px"
+                        className="size-full object-contain"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-medium">{item.school}</p>
+                    </div>
+                  </div>
+                  {item.focus && item.focus.trim() && (
+                    <p className="mt-5 leading-7">{item.focus}</p>
+                  )}
+                  {item.thesis && (
+                    <div className="mt-6 border-t border-line pt-5">
+                      <p className="text-sm font-semibold text-accent">
+                        Tugas akhir
+                      </p>
+                      <p className="mt-2 leading-7">{item.thesis}</p>
+                    </div>
+                  )}
+                  {item.subjects && item.subjects.length > 0 && (
+                    <div className="mt-4">
+                      <p className="text-sm font-semibold">Mata kuliah terkait</p>
+                      <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                        {[
+                          item.subjects.slice(
+                            0,
+                            Math.ceil(item.subjects.length / 2),
+                          ),
+                          item.subjects.slice(
+                            Math.ceil(item.subjects.length / 2),
+                          ),
+                        ]
+                          .filter((subjects) => subjects.length > 0)
+                          .map((subjects, index) => (
+                            <p
+                              key={index}
+                              className="text-sm leading-6 text-muted"
+                            >
+                              {subjects.join(", ")}
+                            </p>
+                          ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="projects" className="portfolio-section border-t border-line">
         <div className="mx-auto max-w-5xl px-5 py-16">
           <div className="flex items-baseline gap-4">
@@ -208,61 +306,6 @@ export default function Home() {
               </div>
             ))}
           </dl>
-        </div>
-      </section>
-
-       <section id="education" className="portfolio-section border-t border-line">
-        <div className="mx-auto max-w-5xl px-5 py-16">
-          <div className="flex items-baseline gap-4">
-            <h2 className="font-serif text-4xl tracking-[-0.04em] text-accent">
-              Pendidikan
-            </h2>
-            <div className="h-px flex-1 bg-line" />
-          </div>
-          <ol className="mt-10">
-            {education.map((item, index) => (
-              <li key={item.school} className="grid gap-4 md:grid-cols-[9rem_1fr]">
-                <p className="pt-6 font-display text-sm font-bold uppercase tracking-[-0.03em] text-accent md:text-right">
-                  {item.period}
-                </p>
-                <div className="relative border-l border-line pb-8 pl-6">
-                  <span className="absolute -left-[0.7rem] top-6 flex h-5 w-5 items-center justify-center bg-ink font-display text-[10px] font-bold text-paper">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <article className="border border-line bg-paper p-6">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h3 className="font-serif text-2xl tracking-tight">{item.program}</h3>
-                        <p className="mt-1 text-sm text-muted">{item.school}</p>
-                      </div>
-                      {item.gpa && (
-                        <div className="shrink-0 border border-line bg-paper px-3 py-2 text-center">
-                          <p className="font-display text-xs uppercase tracking-wider text-muted">IPK</p>
-                          <p className="font-serif text-xl font-bold text-accent">{item.gpa}</p>
-                        </div>
-                      )}
-                    </div>
-                    {item.focus && item.focus.trim() && <p className="mt-4 leading-7">{item.focus}</p>}
-                    {item.subjects && item.subjects.length > 0 && (
-                      <ul className="mt-4 flex flex-wrap gap-2">
-                        {item.subjects.map((s) => (
-                          <li key={s} className="border border-line bg-paper px-2 py-1 font-display text-xs uppercase tracking-wider text-muted">
-                            {s}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {item.thesis && (
-                      <div className="mt-4 pt-2">
-                        <p className="font-display text-xs uppercase tracking-wider text-accent">Tugas Akhir</p>
-                        <p className="mt-1 leading-7">{item.thesis}</p>
-                      </div>
-                    )}
-                  </article>
-                </div>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
