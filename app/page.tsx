@@ -5,6 +5,7 @@ import CradleText from "@/components/kokonutui/cradle-text";
 import TypewriterTitle from "@/components/kokonutui/type-writer";
 import { Portrait } from "@/components/Portrait";
 import { ProjectFilter } from "@/components/ProjectFilter";
+import { ScrollMotion } from "@/components/ScrollMotion";
 import { Folder, FolderContent } from "@/components/ui/folder";
 import { certificates, education, experience, skills } from "@/lib/experience";
 import { projects } from "@/lib/projects";
@@ -13,6 +14,7 @@ import { site } from "@/lib/site";
 export default function Home() {
   return (
     <main id="top">
+      <ScrollMotion />
       <section className="relative h-[calc(100dvh-4.5rem)] min-h-[620px] overflow-hidden">
         <div
           aria-hidden
@@ -95,7 +97,7 @@ export default function Home() {
              <h2 className="font-serif text-4xl tracking-[-0.04em] text-accent">Tentang</h2>
              <div className="h-px flex-1 bg-line/40" />
            </div>
-           <div className="mt-8 max-w-[65ch] space-y-6 leading-[1.75] text-muted">
+           <div data-scroll-reveal className="mt-8 max-w-[65ch] space-y-6 leading-[1.75] text-muted">
              <p>
                Saya lulusan S1 Pendidikan Teknologi Informasi dari Universitas Negeri Surabaya. Minat utama saya adalah IT Support dan jaringan komputer. Saya memahami perencanaan dan pengalamatan jaringan, subnetting, konfigurasi perangkat jaringan, serta troubleshooting melalui praktik dan pembelajaran.
              </p>
@@ -395,7 +397,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="relative aspect-[3/4] w-full max-w-[250px] justify-self-center overflow-hidden border border-line bg-[#e6dfd4] md:max-w-[280px] md:justify-self-end">
+          <div data-scroll-reveal className="relative aspect-[3/4] w-full max-w-[250px] justify-self-center overflow-hidden border border-line bg-[#e6dfd4] md:max-w-[280px] md:justify-self-end">
             <Image
               src="/saya2.jpeg"
               alt="Moch. Anang Ardiansyah"
