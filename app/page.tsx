@@ -97,10 +97,10 @@ export default function Home() {
            </div>
            <div className="mt-8 max-w-[65ch] space-y-6 leading-[1.75] text-muted">
              <p>
-               Saya memiliki ketertarikan pada dunia teknologi dan senang mengeksplorasi berbagai hal, mulai dari pengujian kualitas perangkat lunak, pengembangan frontend, hingga jaringan komputer. Melalui proyek, praktikum, dan pengalaman organisasi, saya terus mengembangkan kemampuan teknis, memperluas wawasan, serta belajar memahami dan menyelesaikan berbagai permasalahan.
+               Saya lulusan S1 Pendidikan Teknologi Informasi dari Universitas Negeri Surabaya. Minat utama saya adalah IT Support dan jaringan komputer. Saya memahami perencanaan dan pengalamatan jaringan, subnetting, konfigurasi perangkat jaringan, serta troubleshooting melalui praktik dan pembelajaran.
              </p>
              <p>
-               Portfolio ini merupakan kumpulan proses belajar, eksplorasi, dan karya yang saya kerjakan sebagai bagian dari perjalanan saya dalam berkembang di bidang teknologi.
+               Selain itu, saya memiliki pengalaman di bidang Software Quality Assurance dan Front-End Web Development melalui pelatihan dan proyek pengembangan aplikasi. Saya terbiasa menganalisis masalah, menyusun dokumentasi teknis, dan bekerja sama dalam tim. Saya terus mengembangkan kompetensi di bidang infrastruktur teknologi informasi, administrasi jaringan, dan dukungan teknis.
              </p>
            </div>
          </div>
