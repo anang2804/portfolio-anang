@@ -50,10 +50,19 @@ export const education: EducationItem[] = [
   {
     school: "Universitas Negeri Surabaya (UNESA)",
     program: "S1 Pendidikan Teknologi Informasi",
-    period: "2022 – 2026",
+    period: "Agustus 2022 – Juli 2026",
     gpa: "3,91/4,00",
     focus: "",
-    subjects: ["Pemrograman Web", "Pemrograman Berorientasi Objek", "Basis Data", "Jaringan Komputer", "Rekayasa Perangkat Lunak", "Interaksi Manusia dan Komputer", "Sistem Operasi", "Algoritma dan Pemrograman"],
+    subjects: [
+      "Jaringan Komputer",
+      "Teknik Komputasi",
+      "Sistem Digital",
+      "Sistem Operasi",
+      "Arsitektur dan Organisasi Komputer",
+      "Sistem Temu Kembali Informasi",
+      "Pemrograman Web",
+      "Basis Data",
+    ],
     thesis: "Pengembangan Media Pembelajaran Web Interaktif dengan Simulasi pada Materi Algoritma dan Pemrograman untuk Siswa Kelas X SMK.",
   },
 ];
